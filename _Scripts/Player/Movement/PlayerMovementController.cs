@@ -39,10 +39,6 @@ namespace MyShooter
         {
             if (!Enabled) return;
             Vector3 move = h * Vector3.right + v * Vector3.forward;
-            if (move.magnitude <= 0.2f)
-            {
-                return;
-            }
             if (move.magnitude > 1f)
             {
                 move.Normalize();

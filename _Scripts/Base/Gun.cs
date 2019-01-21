@@ -8,20 +8,9 @@ namespace MyShooter
     /// </summary>
     public sealed class Gun : BaseWeapon
     {
-        [SerializeField] private float _reloadTime = 1.5f;
-        [SerializeField] private int _maxAmmo = 20;
         [SerializeField] private float _dispersion = 0.015f;
         [SerializeField] private float _force = 500f;
         [SerializeField] private Transform _barrel;
-        [SerializeField] private int _currentAmmo;
-        [SerializeField] private bool _isReloading;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            _currentAmmo = _maxAmmo;
-            _isReloading = false;
-        }
 
         public override void Fire(Ammunition ammo)
         {
@@ -39,25 +28,31 @@ namespace MyShooter
             if (_canFire && ammo)
             {
                 var tempAmmo = Instantiate(ammo, _barrel.position, _barrel.rotation);
-                Vector3 ammoDir = _barrel.forward + (_barrel.right * Random.Range(-_dispersion, _dispersion));
+                Vector3 ammoDir = _rootPlayer.forward + (_barrel.right * Random.Range(-_dispersion, _dispersion));
                 tempAmmo.MyRigidBody.AddForce(ammoDir * _force);
                 _currentAmmo--;
                 _canFire = false;
+                AnimateAttack();
+                PlayAudio(_fireAudio);
                 StartCoroutine(WaitCooldown());
             }
         }
 
-        public void Reload()
+        private void AnimateAttack()
         {
-            _isReloading = true;
-            StartCoroutine(WaitReload());
+            if (!_animator) return;
+            _animator.SetTrigger("attack");
         }
 
-        public IEnumerator WaitReload()
+        protected override void AnimateReload()
         {
-            yield return new WaitForSeconds(_reloadTime);
-            _isReloading = false;
-            _currentAmmo = _maxAmmo;
+            if (!_animator) return;
+            _animator.SetTrigger("reload");
         }
+
+
+
+
+
     }
 }

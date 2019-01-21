@@ -5,7 +5,7 @@ namespace MyShooter
     public sealed class Main : MonoBehaviour
     {
         private GameObject _allControllers;
-        private InputController _inputController;
+        public InputController _inputController { get; private set; }
 
         public static Main Instance { get; private set; }
 

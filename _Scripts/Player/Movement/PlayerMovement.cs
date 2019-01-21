@@ -10,7 +10,7 @@ namespace MyShooter
     public class PlayerMovement : BaseObjectScene
     {
         private Rigidbody _rigidbody;
-        //private Animator _animator;
+        private Animator _animator;
         //private CapsuleCollider _collider;
         private bool canMove;
         private int _floorMask;
@@ -30,7 +30,7 @@ namespace MyShooter
             base.Awake();
             _floorMask = LayerMask.GetMask("Ground");
             //_collider = GetComponent<CapsuleCollider>();
-            //_animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
             if (MyRigidBody != null)
             {
                 MyRigidBody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -58,7 +58,16 @@ namespace MyShooter
         public void Move(Vector3 move)
         {
             if (!MyRigidBody || !canMove) return;
-            MyRigidBody.MovePosition(MyTransform.position + move * Time.fixedDeltaTime * speed);
+            MyRigidBody.MovePosition(MyTransform.position + move * Time.deltaTime * speed);
+            AnimateMove(move);
+        }
+
+        private void AnimateMove(Vector3 move)
+        {
+            if (!_animator) return;
+            Vector3 tempMovement = MyTransform.InverseTransformDirection(move);
+            _animator.SetFloat("hor", tempMovement.x);
+            _animator.SetFloat("vert", tempMovement.z);
         }
 
         private void LookAtMouse()

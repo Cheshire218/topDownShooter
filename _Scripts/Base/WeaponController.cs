@@ -21,6 +21,11 @@ namespace MyShooter
             }
         }
 
+        public void Reload()
+        {
+            _weapon.Reload();
+        }
+
         public void On(BaseWeapon weapon)
         {
             if (Enabled) return;

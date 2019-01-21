@@ -128,7 +128,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0.14141718
-        value: 0.0390625
+        value: 0.025558472
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -220,5 +220,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyRigidBody: {fileID: 0}
   _timeToDestroy: 10
-  _baseDamage: 20
+  _baseDamage: 100
   _forceValue: 400
