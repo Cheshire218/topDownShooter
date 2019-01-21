@@ -12,6 +12,14 @@ namespace MyShooter
         [SerializeField] private float _force = 500f;
         [SerializeField] private Transform _barrel;
 
+        private ParticleSystem _muzzle;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _muzzle = _barrel.GetComponent<ParticleSystem>();
+        }
+
         public override void Fire(Ammunition ammo)
         {
             if(_isReloading)
@@ -33,9 +41,16 @@ namespace MyShooter
                 _currentAmmo--;
                 _canFire = false;
                 AnimateAttack();
+                PlayParticles();
                 PlayAudio(_fireAudio);
                 StartCoroutine(WaitCooldown());
             }
+        }
+
+        protected override void PlayParticles()
+        {
+            if (!_muzzle) return;
+            _muzzle.Play();
         }
 
         private void AnimateAttack()

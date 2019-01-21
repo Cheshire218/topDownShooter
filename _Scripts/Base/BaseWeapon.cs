@@ -28,6 +28,7 @@ namespace MyShooter
         #region Abstract fuctions;
         public abstract void Fire(Ammunition ammo);
         protected abstract void AnimateReload();
+        protected abstract void PlayParticles();
         #endregion;
 
         protected override void Awake()
