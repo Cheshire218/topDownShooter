@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Settings>
+
+  <meta>
+    <Name>Kirsan</Name>
+    <language>Russian</language>
+  </meta>
+
+  <group id="MainMenuItems">
+
+    <string id="NewGame">
+      <text>New game</text>
+    </string>
+
+    <string id="Options">
+      <text>Options</text>
+    </string>
+
+    <string id="Quit">
+      <text>Quit</text>
+    </string>
+
+  </group>
+
+  <group id="OptionsMenuItems">
+
+    <string id="Video">
+      <text>Video options</text>
+    </string>
+
+    <string id="Sound">
+      <text>Audio options</text>
+    </string>
+
+    <string id="Game">
+      <text>Game options</text>
+    </string>
+
+    <string id="Back">
+      <text>Back</text>
+    </string>
+
+  </group>
+  
+  <group id="VideoOptionsMenuItems">
+
+    <string id="CurrentName">
+      <text>Quality level</text>
+    </string>
+
+    <string id="SoftParticles">
+      <text>Soft particles</text>
+    </string>
+
+    <string id="ShadowQuality">
+      <text>Shadow quality</text>
+    </string>
+
+    <string id="SaveAndReturn">
+      <text>Save and return</text>
+    </string>
+
+    <string id="Back">
+      <text>Back</text>
+    </string>
+
+  </group>
+  
+  <group id="QualityNames">
+
+    <string id="Very Low">
+      <text>Very low</text>
+    </string>
+
+    <string id="Low">
+      <text>Low</text>
+    </string>
+
+    <string id="Medium">
+      <text>Medium</text>
+    </string>
+
+    <string id="High">
+      <text>High</text>
+    </string>
+
+    <string id="Very High">
+      <text>Very high</text>
+    </string>
+
+    <string id="Ultra">
+      <text>Ultra</text>
+    </string>
+
+  </group>
+
+  <group id="AudioMenuItems">
+
+    <string id="Background">
+      <text>Background music</text>
+    </string>
+    
+    <string id="SoundVolume">
+      <text>Game sound</text>
+    </string>
+
+    <string id="Back">
+      <text>Back</text>
+    </string>
+
+  </group>
+
+  <group id="MenuPause">
+
+    <string id="Resume">
+      <text>Resume</text>
+    </string>
+
+    <string id="MainMenu">
+      <text>Main menu</text>
+    </string>
+
+    <string id="Quit">
+      <text>Quit</text>
+    </string>
+
+  </group>
+
+    <group id="EndGameMenu">
+
+    <string id="EndGameText">
+      <text>You have been killed!</text>
+    </string>
+
+    <string id="Restart">
+      <text>Restart game</text>
+    </string>
+
+    <string id="MainMenu">
+      <text>Main menu</text>
+    </string>
+
+    <string id="Quit">
+      <text>Quit</text>
+    </string>
+
+  </group>
+  
+
+</Settings>

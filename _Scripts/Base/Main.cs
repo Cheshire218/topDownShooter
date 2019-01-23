@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using MyShooter.UI;
 
 namespace MyShooter
 {
@@ -13,7 +14,8 @@ namespace MyShooter
         public WeaponController WeaponController { get; private set; }
         public PlayerMovementController PlayerMovementController { get; private set; }
         public ObjectManager ObjectManager { get; private set; }
-        
+        public Transform ProjectileContainer { get; private set; }
+        public Interface Interface;
 
         private void Awake()
         {
@@ -25,6 +27,8 @@ namespace MyShooter
             _inputController = _allControllers.AddComponent<InputController>();
             PlayerMovementController = _allControllers.AddComponent<PlayerMovementController>();
             PlayerMovementController.On();
+            ProjectileContainer = FindObjectOfType<ProjectileContainer>().transform;
+            Interface = FindObjectOfType<Interface>();
         }
     }
 }

@@ -24,6 +24,9 @@ namespace MyShooter
             {
                 if (weapon != null) weapon.IsVisible = false;
             }
+
+            //Так как оружие пока что у нас одно ...
+            if (_weapons[0] != null) Main.Instance.WeaponController.On(_weapons[0]);
         }
     }
 }

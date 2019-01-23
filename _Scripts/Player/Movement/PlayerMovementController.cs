@@ -8,7 +8,7 @@ namespace MyShooter
     {
         private PlayerMovement _playerMovement;
 
-        private void OnValidate()
+        private void Awake()
         {
             _playerMovement = FindObjectOfType<PlayerMovement>();
         }

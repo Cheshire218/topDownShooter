@@ -29,6 +29,7 @@ namespace MyShooter
         public abstract void Fire(Ammunition ammo);
         protected abstract void AnimateReload();
         protected abstract void PlayParticles();
+        public abstract void StopShooting();
         #endregion;
 
         protected override void Awake()
@@ -38,7 +39,13 @@ namespace MyShooter
             _isReloading = false;
             _rootPlayer = MyTransform.root;
             _animator = _rootPlayer.GetComponent<Animator>();
-            _audio = _rootPlayer.gameObject.AddComponent<AudioSource>();
+            _audio = _rootPlayer.gameObject.AddComponent<AudioSource>() as AudioSource;
+        }
+
+        protected void Start()
+        {
+            _audio.outputAudioMixerGroup = Main.Instance.Interface.InterfaceResources.AudioMixer.FindMatchingGroups("SoundVolume")[0];
+
             _audio.playOnAwake = false;
         }
 
