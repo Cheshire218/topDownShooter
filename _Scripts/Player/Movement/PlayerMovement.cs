@@ -25,6 +25,14 @@ namespace MyShooter
         [SerializeField]
         private float speed = 10f;
 
+        public Animator Animator
+        {
+            get
+            {
+                return _animator;
+            }
+        }
+
         protected override void Awake()
         {
             base.Awake();

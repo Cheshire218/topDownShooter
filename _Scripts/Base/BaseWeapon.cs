@@ -16,7 +16,21 @@ namespace MyShooter
         [SerializeField] protected bool _isReloading;
         [SerializeField] protected AudioClip _reloadAudio;
         [SerializeField] protected AudioClip _fireAudio;
+        [SerializeField] protected UnityEngine.UI.Text _textAmmo;
         #endregion;
+
+        public int CurrentAmmo
+        {
+            get
+            {
+                return _currentAmmo;
+            }
+            set
+            {
+                _currentAmmo = value;
+                if (_textAmmo != null) _textAmmo.text = _currentAmmo.ToString() + "/" + _maxAmmo.ToString();
+            }
+        }
 
         #region Protected fields;
         protected bool _canFire = true;
@@ -35,7 +49,7 @@ namespace MyShooter
         protected override void Awake()
         {
             base.Awake();
-            _currentAmmo = _maxAmmo;
+            CurrentAmmo = _maxAmmo;
             _isReloading = false;
             _rootPlayer = MyTransform.root;
             _animator = _rootPlayer.GetComponent<Animator>();
@@ -57,7 +71,7 @@ namespace MyShooter
 
         public void Reload()
         {
-            if (_currentAmmo >= _maxAmmo || _isReloading) return;
+            if (CurrentAmmo >= _maxAmmo || _isReloading) return;
             _isReloading = true;
             AnimateReload();
             PlayAudio(_reloadAudio);
@@ -68,7 +82,7 @@ namespace MyShooter
         {
             yield return new WaitForSeconds(_reloadTime);
             _isReloading = false;
-            _currentAmmo = _maxAmmo;
+            CurrentAmmo = _maxAmmo;
         }
 
         protected void PlayAudio(AudioClip clip)

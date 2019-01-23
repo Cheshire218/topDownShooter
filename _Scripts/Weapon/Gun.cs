@@ -47,7 +47,7 @@ namespace MyShooter
                 return;
             }
 
-            if(_currentAmmo <= 0)
+            if(CurrentAmmo <= 0)
             {
                 Reload();
                 return;
@@ -60,7 +60,7 @@ namespace MyShooter
                 Vector3 ammoDir = _rootPlayer.forward + (_barrel.right * Random.Range(-_dispersion, _dispersion));
                 tempAmmo.MyRigidBody.AddForce(ammoDir * _force);
                 makeShotSound();
-                _currentAmmo--;
+                CurrentAmmo--;
                 _canFire = false;
                 AnimateAttack();
                 PlayParticles();

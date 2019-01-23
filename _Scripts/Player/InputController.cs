@@ -38,5 +38,17 @@ namespace MyShooter
             if (!tempWeapon) return;
             Main.Instance.WeaponController.On(tempWeapon);
         }
+
+        public override void Off()
+        {
+            base.Off();
+            this.enabled = false;
+        }
+
+        public override void On()
+        {
+            base.On();
+            this.enabled = true;
+        }
     }
 }

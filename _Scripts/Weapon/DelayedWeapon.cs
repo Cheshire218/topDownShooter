@@ -28,7 +28,7 @@ namespace MyShooter
                 return;
             }
 
-            if(_currentAmmo <= 0)
+            if(CurrentAmmo <= 0)
             {
                 Reload();
                 return;
@@ -37,7 +37,7 @@ namespace MyShooter
             if (_canFire && ammo)
             {
                 StartCoroutine(ThrowAmmo(ammo));
-                _currentAmmo--;
+                CurrentAmmo--;
                 _canFire = false;
                 AnimateAttack();
                 PlayParticles();
